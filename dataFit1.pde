@@ -2,13 +2,15 @@ MyData data;
 Hypothesis hyp;
 Hypothesis hyp2;
 
-
-
 void setup()
 {
   size(displayWidth-50, 500);
+  
+  //make a default new data class
   data = new MyData();
+  //make two hypothesis classes one for batch regression
   hyp = new Hypothesis();
+  //and the other for 
   hyp2 = new Hypothesis();
   
   background(0);
@@ -22,10 +24,12 @@ void setup()
 
 void draw()
 {
-  if(mousePressed)
+  if(mousePressed) //update if the mouse is held down
   {
     background(0);
-    double alpha = .00001;
+    double alpha = .00001; // Alpha, aka the learning rate of the algorithm
+    
+    //do 100 iterations each draw tick (if mouse is held down)
     for(int i = 0; i < 100; i ++)
     {
       hyp.updateLMSBatchThetas(alpha,data.trainingData);

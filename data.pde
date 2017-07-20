@@ -1,4 +1,5 @@
 //double array holder with convenience functions
+//builds up the data and draws it
 class MyData
 {
   double[][] trainingData;
